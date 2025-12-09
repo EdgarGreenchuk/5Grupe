@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="lt">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -205,27 +204,55 @@
             padding: 20px;
             border-radius: 10px;
             border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .task-card:hover {
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
         }
 
         .task-card h3 {
             color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .task-card p {
+            color: #2c3e50;
             margin-bottom: 15px;
         }
 
-        .task-list {
-            list-style: none;
+        .task-card select {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+            transition: border-color 0.3s ease;
         }
 
-        .task-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #e9ecef;
+        .task-card select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .task-info {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #e9ecef;
         }
 
-        .task-list li:last-child {
-            border-bottom: none;
+        .assigned-to {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        .assigned-to strong {
+            color: #2c3e50;
         }
 
         .status-badge {
@@ -301,7 +328,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <header>
@@ -330,8 +356,7 @@
 
         <!-- Info -->
         <div class="info-box">
-            <p>💡 <strong>Patarimas:</strong> Pažymėkite užduotis paspausdami checkbox'us. Progresas išsaugomas
-                automatiškai jūsų naršyklėje!</p>
+            <p>💡 <strong>Patarimas:</strong> Pažymėkite užduotis paspausdami checkbox'us. Progresas išsaugomas automatiškai jūsų naršyklėje!</p>
         </div>
 
         <!-- Controls -->
@@ -395,6 +420,7 @@
         <!-- Task Assignments Overview -->
         <div class="section">
             <h2>📊 Užduočių Pasiskirstymas</h2>
+            <p style="color: #6c757d; margin-bottom: 20px;">Priskirkite narius prie užduočių ir sekite progresą</p>
             <div class="task-assignments" id="taskAssignments"></div>
         </div>
 
@@ -506,7 +532,7 @@
         function renderChecklist(containerId, tasks, prefix) {
             const container = document.getElementById(containerId);
             const state = loadState();
-
+            
             container.innerHTML = tasks.map((task, index) => {
                 const id = `${prefix}-${index}`;
                 const checked = state[id] || false;
@@ -531,7 +557,7 @@
             const checkbox = document.getElementById(id);
             state[id] = checkbox.checked;
             saveState(state);
-
+            
             // Update UI
             const item = checkbox.closest('.checklist-item');
             if (checkbox.checked) {
@@ -539,7 +565,7 @@
             } else {
                 item.classList.remove('completed');
             }
-
+            
             updateProgress();
             updateTaskAssignments();
         }
@@ -550,48 +576,102 @@
             const total = checkboxes.length;
             const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
             const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
-
+            
             document.getElementById('completedCount').textContent = completed;
             document.getElementById('totalCount').textContent = total;
             document.getElementById('progressBar').style.width = percentage + '%';
             document.getElementById('progressBar').textContent = percentage + '%';
-
+            
             // Update emoji based on progress
-            const emoji = percentage === 100 ? '🎉' :
-                percentage >= 75 ? '🚀' :
-                    percentage >= 50 ? '💪' :
-                        percentage >= 25 ? '⏳' : '🎯';
+            const emoji = percentage === 100 ? '🎉' : 
+                         percentage >= 75 ? '🚀' :
+                         percentage >= 50 ? '💪' :
+                         percentage >= 25 ? '⏳' : '🎯';
             document.getElementById('progressEmoji').textContent = emoji;
         }
 
         // Update task assignments
         function updateTaskAssignments() {
             const container = document.getElementById('taskAssignments');
+            const assignments = loadAssignments();
+            
             const tasks = [
-                { name: 'Atsitiktinė spalva', id: 'task1', member: '' },
-                { name: 'Formos keitimas', id: 'task2', member: '' },
-                { name: 'X ir O keitimas', id: 'task3', member: '' },
-                { name: 'Teksto kopijavimas', id: 'task4', member: '' },
-                { name: 'Skaičių sudėtis', id: 'task5', member: '' },
-                { name: 'Range slankiklis', id: 'task6', member: '' },
-                { name: 'Spalvų keitimas', id: 'task7', member: '' },
-                { name: 'Rūšiuotas sąrašas', id: 'task8', member: '' },
-                { name: 'Įdėti kvadratai', id: 'task9', member: '' },
-                { name: 'Spalvos API', id: 'task10', member: '' }
+                { name: 'Atsitiktinė spalva', id: 'task1' },
+                { name: 'Formos keitimas', id: 'task2' },
+                { name: 'X ir O keitimas', id: 'task3' },
+                { name: 'Teksto kopijavimas', id: 'task4' },
+                { name: 'Skaičių sudėtis', id: 'task5' },
+                { name: 'Range slankiklis', id: 'task6' },
+                { name: 'Spalvų keitimas', id: 'task7' },
+                { name: 'Rūšiuotas sąrašas', id: 'task8' },
+                { name: 'Įdėti kvadratai', id: 'task9' },
+                { name: 'Spalvos API', id: 'task10' }
             ];
-
-            container.innerHTML = tasks.map(task => `
-                <div class="task-card">
-                    <h3>Užduotis ${task.id.replace('task', '')}</h3>
-                    <p style="margin-bottom: 10px; color: #2c3e50;">${task.name}</p>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="color: #6c757d; font-size: 0.9em;">
-                            Atsakingas: <strong>${task.member || 'Nepriskirta'}</strong>
-                        </span>
-                        <span class="status-badge status-pending">⬜</span>
+            
+            const members = ['Nepriskirta', 'Team Lead', 'Narys 1', 'Narys 2', 'Narys 3', 'Narys 4', 'Narys 5', 'Narys 6'];
+            
+            container.innerHTML = tasks.map(task => {
+                const assignment = assignments[task.id] || { member: 'Nepriskirta', status: 'pending' };
+                const statusClass = assignment.status === 'done' ? 'status-done' : 
+                                  assignment.status === 'progress' ? 'status-progress' : 
+                                  'status-pending';
+                const statusText = assignment.status === 'done' ? '✅' : 
+                                 assignment.status === 'progress' ? '🔄' : '⬜';
+                
+                return `
+                    <div class="task-card">
+                        <h3>Užduotis ${task.id.replace('task', '')}</h3>
+                        <p>${task.name}</p>
+                        
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">
+                            Atsakingas:
+                        </label>
+                        <select onchange="updateAssignment('${task.id}', 'member', this.value)">
+                            ${members.map(member => 
+                                `<option value="${member}" ${assignment.member === member ? 'selected' : ''}>${member}</option>`
+                            ).join('')}
+                        </select>
+                        
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">
+                            Statusas:
+                        </label>
+                        <select onchange="updateAssignment('${task.id}', 'status', this.value)">
+                            <option value="pending" ${assignment.status === 'pending' ? 'selected' : ''}>⬜ Nepradėta</option>
+                            <option value="progress" ${assignment.status === 'progress' ? 'selected' : ''}>🔄 Vykdoma</option>
+                            <option value="done" ${assignment.status === 'done' ? 'selected' : ''}>✅ Baigta</option>
+                        </select>
+                        
+                        <div class="task-info">
+                            <span class="assigned-to">
+                                <strong>${assignment.member}</strong>
+                            </span>
+                            <span class="status-badge ${statusClass}">${statusText}</span>
+                        </div>
                     </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
+        }
+        
+        // Load assignments from localStorage
+        function loadAssignments() {
+            const saved = localStorage.getItem('taskAssignments');
+            return saved ? JSON.parse(saved) : {};
+        }
+        
+        // Save assignments to localStorage
+        function saveAssignments(assignments) {
+            localStorage.setItem('taskAssignments', JSON.stringify(assignments));
+        }
+        
+        // Update assignment
+        function updateAssignment(taskId, field, value) {
+            const assignments = loadAssignments();
+            if (!assignments[taskId]) {
+                assignments[taskId] = { member: 'Nepriskirta', status: 'pending' };
+            }
+            assignments[taskId][field] = value;
+            saveAssignments(assignments);
+            updateTaskAssignments();
         }
 
         // Mark all complete
@@ -611,8 +691,9 @@
 
         // Clear all
         function clearAll() {
-            if (confirm('Ar tikrai norite išvalyti VISĄ progresą?')) {
+            if (confirm('Ar tikrai norite išvalyti VISĄ progresą IR užduočių pasiskirstymą?')) {
                 localStorage.removeItem('groupChecklist');
+                localStorage.removeItem('taskAssignments');
                 location.reload();
             }
         }
@@ -620,8 +701,36 @@
         // Export to markdown
         function exportToMarkdown() {
             const state = loadState();
+            const assignments = loadAssignments();
             let markdown = '# Grupinio Darbo Checklist\n\n';
-
+            
+            // Add task assignments table
+            markdown += '## 📊 Užduočių Pasiskirstymas\n\n';
+            markdown += '| # | Užduotis | Atsakingas | Statusas |\n';
+            markdown += '|---|----------|------------|----------|\n';
+            
+            const tasks = [
+                { name: 'Atsitiktinė spalva', id: 'task1' },
+                { name: 'Formos keitimas', id: 'task2' },
+                { name: 'X ir O keitimas', id: 'task3' },
+                { name: 'Teksto kopijavimas', id: 'task4' },
+                { name: 'Skaičių sudėtis', id: 'task5' },
+                { name: 'Range slankiklis', id: 'task6' },
+                { name: 'Spalvų keitimas', id: 'task7' },
+                { name: 'Rūšiuotas sąrašas', id: 'task8' },
+                { name: 'Įdėti kvadratai', id: 'task9' },
+                { name: 'Spalvos API', id: 'task10' }
+            ];
+            
+            tasks.forEach((task, index) => {
+                const assignment = assignments[task.id] || { member: 'Nepriskirta', status: 'pending' };
+                const statusEmoji = assignment.status === 'done' ? '✅' : 
+                                  assignment.status === 'progress' ? '🔄' : '⬜';
+                markdown += `| ${index + 1} | ${task.name} | ${assignment.member} | ${statusEmoji} |\n`;
+            });
+            
+            markdown += '\n---\n\n';
+            
             const sections = [
                 { title: '## Team Lead Užduotys', prefix: 'teamLead', tasks: checklistData.teamLead },
                 { title: '## Narys 1 Užduotys', prefix: 'narys1', tasks: checklistData.narys1 },
@@ -631,7 +740,7 @@
                 { title: '## Narys 5 Užduotys', prefix: 'narys5', tasks: checklistData.narys5 },
                 { title: '## Narys 6 Užduotys', prefix: 'narys6', tasks: checklistData.narys6 }
             ];
-
+            
             sections.forEach(section => {
                 markdown += `${section.title}\n\n`;
                 section.tasks.forEach((task, index) => {
@@ -641,7 +750,7 @@
                 });
                 markdown += '\n';
             });
-
+            
             document.getElementById('exportTextarea').value = markdown;
             document.getElementById('exportSection').style.display = 'block';
             document.getElementById('exportSection').scrollIntoView({ behavior: 'smooth' });
@@ -680,5 +789,4 @@
         init();
     </script>
 </body>
-
 </html>

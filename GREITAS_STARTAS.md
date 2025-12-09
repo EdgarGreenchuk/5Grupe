@@ -29,7 +29,9 @@ Tai **pilnas starteris kit'as** jūsų grupiniam JavaScript darbui. Viskas jau p
 │   └── style1.css
 ├── 📁 narys2/          ← Tuščias (jūsų)
 ├── 📁 narys3/          ← Tuščias (jūsų)
-└── 📁 narys4/          ← Tuščias (jūsų)
+├── 📁 narys4/          ← Tuščias (jūsų)
+├── 📁 narys5/          ← Tuščias (jūsų)
+└── 📁 narys6/          ← Tuščias (jūsų)
 ```
 
 ## 🎯 Kaip pradėti?

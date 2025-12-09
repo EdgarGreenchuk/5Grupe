@@ -22,9 +22,17 @@ projekt-repo/
 │   ├── script3.js
 │   └── style3.css
 │
-└── narys4/             # Ketvirtojo grupės nario folderis
-    ├── script4.js
-    └── style4.css
+├── narys4/             # Ketvirtojo grupės nario folderis
+│   ├── script4.js
+│   └── style4.css
+│
+├── narys5/             # Penktojo grupės nario folderis
+│   ├── script5.js
+│   └── style5.css
+│
+└── narys6/             # Šeštojo grupės nario folderis
+    ├── script6.js
+    └── style6.css
 ```
 
 ## 🎯 Užduočių Sąrašas

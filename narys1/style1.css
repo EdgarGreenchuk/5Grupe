@@ -1,0 +1,29 @@
+/* ============================================
+   NARYS 1 - Papildomi stiliai
+   Naudok šį failą tik jei reikia specifinių stilių savo užduotims
+   ============================================ */
+
+/* Pavyzdžiui, jei norime pridėti animaciją random spalvos mygtukui */
+#randomColorBtn {
+    transition: all 0.5s ease;
+}
+
+/* Arba specialų stilių teksto display */
+#textDisplay {
+    font-style: italic;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* PASTABA: 
+   Dažniausiai užteks bendro style.css failo.
+   Šį failą kurti tik jei reikia specifinių dalykų,
+   kurie netinka kitiems nariams. */

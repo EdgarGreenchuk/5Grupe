@@ -1,0 +1,243 @@
+/* Bendri stiliai */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
+
+/* Užduočių sekcijos */
+.task {
+    background: #f8f9fa;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border-left: 5px solid #667eea;
+}
+
+.task h2 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.task p {
+    color: #6c757d;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+/* Mygtukai */
+.btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Input laukeliai */
+.input-field {
+    padding: 12px;
+    font-size: 1em;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin: 5px;
+    transition: border-color 0.3s ease;
+    min-width: 200px;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Display box */
+.display-box {
+    background: white;
+    border: 2px solid #667eea;
+    padding: 15px;
+    margin: 15px 5px;
+    border-radius: 5px;
+    min-height: 50px;
+    font-size: 1.1em;
+    color: #2c3e50;
+}
+
+/* Range input */
+input[type="range"] {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px 0;
+}
+
+/* Color inputs */
+input[type="color"] {
+    width: 60px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+
+label {
+    display: inline-block;
+    margin: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Užduotis 7: Kvadratas */
+.square {
+    width: 200px;
+    height: 200px;
+    background-color: #3498db;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+/* Užduotis 8: Rūšiuotas sąrašas */
+.sorted-list {
+    background: white;
+    padding: 20px 40px;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: 2px solid #667eea;
+    min-height: 50px;
+}
+
+.sorted-list li {
+    padding: 8px;
+    margin: 5px 0;
+    background: #f8f9fa;
+    border-radius: 3px;
+}
+
+/* Užduotis 9: Įdėti kvadratai */
+#nestedSquares {
+    margin: 20px 0;
+}
+
+.outer-square {
+    width: 300px;
+    height: 300px;
+    background-color: #e74c3c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.outer-square:hover {
+    opacity: 0.9;
+}
+
+.middle-square {
+    width: 200px;
+    height: 200px;
+    background-color: #2ecc71;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.middle-square:hover {
+    opacity: 0.9;
+}
+
+.inner-square {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.inner-square:hover {
+    opacity: 0.9;
+}
+
+/* Responsive dizainas */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .task {
+        padding: 15px;
+    }
+    
+    .input-field {
+        min-width: 150px;
+    }
+    
+    .square {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .outer-square {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .middle-square {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .inner-square {
+        width: 75px;
+        height: 75px;
+    }
+}

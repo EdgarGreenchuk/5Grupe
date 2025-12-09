@@ -1,0 +1,25 @@
+# Operacinės sistemos failai
+.DS_Store
+Thumbs.db
+
+# IDE / Editor failai
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (jei naudosite)
+node_modules/
+
+# Log failai
+*.log
+npm-debug.log*
+
+# Temporary failai
+*.tmp
+.cache/
+
+# Environment kintamieji
+.env
+.env.local

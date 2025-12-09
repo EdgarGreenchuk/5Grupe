@@ -10,7 +10,7 @@ Visi failai dabar pritaikyti **6 narių** grupei!
 ✅ Pridėtos sekcijos:
 - 👤 Narys 5 Užduotys (9 užduotys)
 - 👤 Narys 6 Užduotys (9 užduotys)
-
+ 
 ✅ Funkcionalumas:
 - Progress bar skaičiuoja visas 6 narių užduotis
 - Export į Markdown įtraukia visus 6 narius

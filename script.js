@@ -5,7 +5,7 @@
 // ============================================
 
 // ============================================
-// UŽDUOTIS 1: Atsitiktinės spalvos mygtukas
+// UŽDUOTIS 1: Atsitiktinės spalvos mygtukas 
 // ============================================
 const randomColorBtn = document.getElementById('randomColorBtn');
 

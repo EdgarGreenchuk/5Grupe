@@ -10,7 +10,7 @@
 ```javascript
 // Atsitiktinė spalva HEX formatu
 const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-
+ 
 // Arba RGB formatu
 const r = Math.floor(Math.random() * 256);
 const g = Math.floor(Math.random() * 256);

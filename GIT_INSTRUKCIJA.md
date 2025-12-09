@@ -9,7 +9,7 @@ Tai padės išvengti konfliktų ir problemų.
 ## 📋 Pradžia
 
 ### Team Lead:
-
+ 
 1. **Sukurti GitHub repozitoriją:**
    ```bash
    # Lokaliai

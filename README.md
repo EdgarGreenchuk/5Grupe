@@ -1,7 +1,7 @@
 # Grupinis Darbas - JavaScript Užduotys
 
 ## 📁 Projekto Struktūra
-
+ 
 ```
 projekt-repo/
 │

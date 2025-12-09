@@ -11,7 +11,7 @@ Tai **pilnas starteris kit'as** jūsų grupiniam JavaScript darbui. Viskas jau p
 - ✅ CSS su profesionaliais stiliais
 - ✅ JavaScript su veikiančiomis užduotimis (pavyzdžiui)
 - ✅ Responsive dizainas
-
+ 
 ### Instrukcijos:
 - 📖 README.md - Projekto aprašymas
 - 📖 GIT_INSTRUKCIJA.md - Kaip dirbti su Git

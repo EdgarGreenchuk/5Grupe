@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="lt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -300,6 +301,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -328,7 +330,8 @@
 
         <!-- Info -->
         <div class="info-box">
-            <p>💡 <strong>Patarimas:</strong> Pažymėkite užduotis paspausdami checkbox'us. Progresas išsaugomas automatiškai jūsų naršyklėje!</p>
+            <p>💡 <strong>Patarimas:</strong> Pažymėkite užduotis paspausdami checkbox'us. Progresas išsaugomas
+                automatiškai jūsų naršyklėje!</p>
         </div>
 
         <!-- Controls -->
@@ -503,7 +506,7 @@
         function renderChecklist(containerId, tasks, prefix) {
             const container = document.getElementById(containerId);
             const state = loadState();
-            
+
             container.innerHTML = tasks.map((task, index) => {
                 const id = `${prefix}-${index}`;
                 const checked = state[id] || false;
@@ -528,7 +531,7 @@
             const checkbox = document.getElementById(id);
             state[id] = checkbox.checked;
             saveState(state);
-            
+
             // Update UI
             const item = checkbox.closest('.checklist-item');
             if (checkbox.checked) {
@@ -536,7 +539,7 @@
             } else {
                 item.classList.remove('completed');
             }
-            
+
             updateProgress();
             updateTaskAssignments();
         }
@@ -547,17 +550,17 @@
             const total = checkboxes.length;
             const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
             const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
-            
+
             document.getElementById('completedCount').textContent = completed;
             document.getElementById('totalCount').textContent = total;
             document.getElementById('progressBar').style.width = percentage + '%';
             document.getElementById('progressBar').textContent = percentage + '%';
-            
+
             // Update emoji based on progress
-            const emoji = percentage === 100 ? '🎉' : 
-                         percentage >= 75 ? '🚀' :
-                         percentage >= 50 ? '💪' :
-                         percentage >= 25 ? '⏳' : '🎯';
+            const emoji = percentage === 100 ? '🎉' :
+                percentage >= 75 ? '🚀' :
+                    percentage >= 50 ? '💪' :
+                        percentage >= 25 ? '⏳' : '🎯';
             document.getElementById('progressEmoji').textContent = emoji;
         }
 
@@ -576,7 +579,7 @@
                 { name: 'Įdėti kvadratai', id: 'task9', member: '' },
                 { name: 'Spalvos API', id: 'task10', member: '' }
             ];
-            
+
             container.innerHTML = tasks.map(task => `
                 <div class="task-card">
                     <h3>Užduotis ${task.id.replace('task', '')}</h3>
@@ -618,7 +621,7 @@
         function exportToMarkdown() {
             const state = loadState();
             let markdown = '# Grupinio Darbo Checklist\n\n';
-            
+
             const sections = [
                 { title: '## Team Lead Užduotys', prefix: 'teamLead', tasks: checklistData.teamLead },
                 { title: '## Narys 1 Užduotys', prefix: 'narys1', tasks: checklistData.narys1 },
@@ -628,7 +631,7 @@
                 { title: '## Narys 5 Užduotys', prefix: 'narys5', tasks: checklistData.narys5 },
                 { title: '## Narys 6 Užduotys', prefix: 'narys6', tasks: checklistData.narys6 }
             ];
-            
+
             sections.forEach(section => {
                 markdown += `${section.title}\n\n`;
                 section.tasks.forEach((task, index) => {
@@ -638,7 +641,7 @@
                 });
                 markdown += '\n';
             });
-            
+
             document.getElementById('exportTextarea').value = markdown;
             document.getElementById('exportSection').style.display = 'block';
             document.getElementById('exportSection').scrollIntoView({ behavior: 'smooth' });
@@ -677,4 +680,5 @@
         init();
     </script>
 </body>
+
 </html>

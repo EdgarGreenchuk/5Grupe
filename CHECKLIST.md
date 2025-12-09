@@ -12,7 +12,7 @@
 - [ ] Sukurtas `style.css` failas
 - [ ] Sukurtas `README.md` failas
 - [ ] Sukurtas `.gitignore` failas
-
+ 
 ### HTML Struktūra:
 - [ ] Visos 10 užduočių sekcijos sukurtos
 - [ ] Visi ID ir class atributai nustatyti

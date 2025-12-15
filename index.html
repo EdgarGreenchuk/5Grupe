@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupinis Darbas - JavaScript Užduotys</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="RSR-e/style.css">
+    <link rel="stylesheet" href="V-Lir/style.css">
+    <link rel="stylesheet" href="jattobug/style.css">
+        <link rel="stylesheet" href="M-Kod/style.css">
+            <link rel="stylesheet" href="G_Ban/style.css">
+
+
 </head>
 
 <body>
@@ -26,13 +33,11 @@
             <button id="shapeChangeBtn" class="btn">Keisti formą</button>
         </section>
 
-        <!-- Užduotis 3: X ir O mygtukų teksto keitimas -->
-        <section class="task">
-            <h2>3. Teksto keitimas</h2>
-            <p>Paspaudus bet kurį mygtuką, tekstai susikeičia</p>
-            <button id="btnX" class="btn">X</button>
-            <button id="btnO" class="btn">O</button>
-        </section>
+        <!-- Užduotis c: X ir O mygtukų teksto keitimas by M-Kod -->
+        <button class="firstButtonX">X</button>
+    <button class="secondButtonO">O</button>
+    
+
 
         <!-- Užduotis 4: Teksto kopijavimas iš input į div -->
         <section class="task">
@@ -68,14 +73,14 @@
             <label>Teksto spalva: <input type="color" id="textColor" value="#ffffff"></label>
         </section>
 
-        <!-- Užduotis 8: Rūšiuotas sąrašas -->
-        <section class="task">
-            <h2>8. Rūšiuotas sąrašas</h2>
-            <p>Pridėti žodį į abėcėliškai rūšiuotą sąrašą</p>
-            <input type="text" id="wordInput" class="input-field" placeholder="Įveskite žodį...">
-            <button id="addWordBtn" class="btn">Pridėti</button>
-            <ol id="sortedList" class="sorted-list"></ol>
-        </section>
+        <!-- Užduotis h: Rūšiuotas sąrašas by jattobug  -->
+        <section class="jattobug-sekcija">
+        <div class="h">
+            <input type="text" id="wordInput">
+            <button id="addButton">Pridėti</button>
+            <ol id="wordList"></ol>
+        </div>
+    </section>
 
         <!-- Užduotis 9: Įdėti kvadratai -->
         <section class="task">
@@ -91,26 +96,31 @@
             <div id="colorInfo" class="display-box">Paspauskite ant kvadrato</div>
         </section>
 
-        <!-- Užduotis 10: Spalvos pavadinimas iš API -->
-        <section class="task">
-            <h2>10. Spalvos pavadinimas</h2>
-            <p>Parinkti spalvą ir gauti jos pavadinimą iš API</p>
-            <input type="color" id="colorPicker" value="#ff5733">
-            <div id="colorName" class="display-box">Pasirinkite spalvą...</div>
-        </section>
+        <!-- Užduotis j: Spalvos pavadinimas iš API by M-Kod  -->
+        <section class="colorSection">
+    <input type="color" data-create-color-input>
+    <div class="colorTypeName"> Pasirink spalva</div>
+ 
+</section>
     </div>
 
     <!-- JavaScript failai -->
-    <!-- Bendras script.js Team Lead'ui (jei reikia) -->
-    <script src="script.js"></script>
+ <!-- Grupės narių failai -->
 
-    <!-- Grupės narių failai (pridėkite pagal poreikį) -->
-    <!-- <script src="narys1/script1.js"></script> -->
-    <!-- <script src="narys2/script2.js"></script> -->
-    <!-- <script src="narys3/script3.js"></script> -->
-    <!-- <script src="narys4/script4.js"></script> -->
-    <!-- <script src="narys5/script5.js"></script> -->
-    <!-- <script src="narys6/script6.js"></script> -->
+<!-- G_Ban -->
+<script src="G_Ban/app.js"></script>
+
+<!-- M-Kod -->
+<script src="M-Kod/app.js"></script>
+
+<!-- RSR-e -->
+<script src="RSR-e/app.js"></script>
+
+<!-- V-Lir -->
+<script src="V-Lir/app.js"></script>
+
+<!-- jattobug -->
+<script src="jattobug/app.js"></script>
 </body>
 
 </html>

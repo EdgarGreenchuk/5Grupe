@@ -1,0 +1,80 @@
+/* b. variantas: */
+
+button {
+    width: 160px;
+    height: 60px;
+    border-radius: 8px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+
+/* f. variantas: */
+
+  .container {
+    width: 300px;
+    margin: 40px;
+    font-family: Arial, sans-serif;
+  }
+ 
+  input[type="range"] {
+    width: 100%;
+  }
+ 
+  .G_BanValue-box {
+    margin-top: 15px;
+    padding: 10px;
+    border: 2px solid #117ff4;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 6px;
+  }
+
+/* i. variantas: */
+
+.G_BanWrapper {
+    display: flex;
+    gap: 40px;
+    margin: 40px;
+    font-family: Arial, sans-serif;
+  }
+ 
+  .G_BanSquare-outer {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  .G_BanSquare-middle {
+    width: 140px;
+    height: 140px;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  .G_BanSquare-inner {
+    width: 80px;
+    height: 80px;
+    background-color: blue;
+  }
+ 
+  .G_BanResult {
+    width: 120px;
+    height: 120px;
+    border: 2px solid black;
+  }
+ 

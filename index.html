@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="V-Lir/style.css">
     <link rel="stylesheet" href="jattobug/style.css">
         <link rel="stylesheet" href="M-Kod/style.css">
-            <link rel="stylesheet" href="G_Ban/style.css">
+            <link rel="stylesheet" href="G_Ban/styleBan.css">
 
 
 </head>
@@ -26,12 +26,9 @@
             <button id="randomColorBtn" class="btn">Pakeisti spalvą</button>
         </section>
 
-        <!-- Užduotis 2: Mygtukas keičiantis formą -->
-        <section class="task">
-            <h2>2. Formos keitimas</h2>
-            <p>Paspaudus mygtuką, jis tampa apskritimu arba grįžta į pradinę formą</p>
-            <button id="shapeChangeBtn" class="btn">Keisti formą</button>
-        </section>
+        <!-- Užduotis b: Mygtukas keičiantis formą by G_Ban -->
+     b. variantas
+<button id="G_Ban_Button">Spausk</button>
 
         <!-- Užduotis c: X ir O mygtukų teksto keitimas by M-Kod -->
         <button class="firstButtonX">X</button>
@@ -39,13 +36,19 @@
     
 
 
-        <!-- Užduotis 4: Teksto kopijavimas iš input į div -->
+        <!-- Užduotis d: Teksto kopijavimas iš input į div by V-Lir -->
         <section class="task">
-            <h2>4. Teksto kopijavimas</h2>
-            <p>Rašant tekstą į input, jis atsikartoja div elemente</p>
-            <input type="text" id="textInput" class="input-field" placeholder="Įveskite tekstą...">
-            <div id="textDisplay" class="display-box">Tekstas atsiras čia...</div>
-        </section>
+      <h2>4. Teksto kopijavimas</h2>
+      <p>
+        Įveskite tekstą į laukelį - jis iškart atsikartos žemiau esančiame div
+        elemente.
+      </p>
+
+      <label for="textInput">Tekstas:</label>
+      <input type="text" id="textInput" class="input-field" />
+
+      <div id="textDisplay" class="display-box"></div>
+    </section>
 
         <!-- Užduotis 5: Skaičių sudėtis -->
         <section class="task">
@@ -56,22 +59,38 @@
             <div id="sumDisplay" class="display-box">Įveskite skaičius</div>
         </section>
 
-        <!-- Užduotis 6: Range reikšmės rodymas -->
-        <section class="task">
-            <h2>6. Range slankiklis</h2>
-            <p>Keičiant slankiklį, rodoma jo reikšmė</p>
-            <input type="range" id="rangeInput" min="10" max="99" step="1" value="50">
-            <div id="rangeDisplay" class="display-box">50</div>
-        </section>
+        <!-- Užduotis 6: Range reikšmės rodymas by G_Ban -->
+        <div class="container">
+<input 
+    type="range" 
+    id="rangeInput" 
+    min="10" 
+    max="99" 
+    step="1" 
+    value="10"
+>
+ 
+  <div id="G_BanRangeValue" class="G_BanValue-box">
+    Reikšmė: 10
+</div>
+</div>
 
-        <!-- Užduotis 7: Kvadratas su spalvų keitimu -->
+        <!-- Užduotis g: Kvadratas su spalvų keitimu by V-Lir-->
         <section class="task">
-            <h2>7. Spalvų keitimas</h2>
-            <p>Keisti kvadrato ir teksto spalvas</p>
-            <div id="colorSquare" class="square">Tekstas kvadrate</div>
-            <label>Kvadrato spalva: <input type="color" id="squareColor" value="#3498db"></label>
-            <label>Teksto spalva: <input type="color" id="textColor" value="#ffffff"></label>
-        </section>
+      <h2>7. Spalvų keitimas</h2>
+      <p>Keisti kvadrato ir teksto spalvas</p>
+      <div id="colorSquare" class="square">Tekstas kvadrate</div>
+
+      <div>
+        <label for="squareColor">Kvadrato spalva:</label>
+        <input type="color" id="squareColor" value="#3498db" />
+      </div>
+
+      <div>
+        <label for="textColor">Teksto spalva:</label>
+        <input type="color" id="textColor" value="#ffffff" />
+      </div>
+    </section>
 
         <!-- Užduotis h: Rūšiuotas sąrašas by jattobug  -->
         <section class="jattobug-sekcija">
@@ -82,19 +101,18 @@
         </div>
     </section>
 
-        <!-- Užduotis 9: Įdėti kvadratai -->
-        <section class="task">
-            <h2>9. Įdėti kvadratai</h2>
-            <p>Paspaudus ant kvadrato, šalia rodoma jo spalva</p>
-            <div id="nestedSquares">
-                <div class="outer-square" data-color="Raudona">
-                    <div class="middle-square" data-color="Žalia">
-                        <div class="inner-square" data-color="Mėlyna"></div>
-                    </div>
-                </div>
-            </div>
-            <div id="colorInfo" class="display-box">Paspauskite ant kvadrato</div>
-        </section>
+        <!-- Užduotis i: Įdėti kvadratai by G_Ban -->
+       <div class="G_BanWrapper">
+
+<div class="G_BanSquare-outer" data-color="red">
+<div class="G_BanSquare-middle" data-color="green">
+<div class="G_BanSquare-inner " data-color="blue"></div>
+</div>
+</div>
+
+<div id="G_BanResult " class="G_BanResult "></div>
+ 
+</div>
 
         <!-- Užduotis j: Spalvos pavadinimas iš API by M-Kod  -->
         <section class="colorSection">

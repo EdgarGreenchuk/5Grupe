@@ -2,125 +2,241 @@
 <html lang="lt">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupinis Darbas - JavaScript Užduotys</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="RSR-e/style.css">
-    <link rel="stylesheet" href="V-Lir/style.css">
-    <link rel="stylesheet" href="jattobug/style.css">
-        <link rel="stylesheet" href="M-Kod/style.css">
-            <link rel="stylesheet" href="G_Ban/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Grupė - JavaScript Projektas</title>
 
+  <!-- Pagrindinis CSS - VISADA PIRMAS! -->
+  <link rel="stylesheet" href="style.css">
 
+  <!-- Narių CSS - PO pagrindinio -->
+  <link rel="stylesheet" href="RSR-e/style.css">
+  <link rel="stylesheet" href="V-Lir/style.css">
+  <link rel="stylesheet" href="jattobug/style.css">
+  <link rel="stylesheet" href="M-Kod/style.css">
+  <link rel="stylesheet" href="G_Ban/styleBan.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Grupinis Darbas - JavaScript Užduotys</h1>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>▸ 5 Grupė ◂</h1>
+      <p>JavaScript Grupinis Projektas | 2025</p>
+    </header>
 
-        <!-- Užduotis 1: Mygtukas su atsitiktine spalva -->
-        <section class="task">
-            <h2>1. Atsitiktinė spalva</h2>
-            <p>Paspaudus mygtuką, jo spalva keičiasi į atsitiktinę</p>
-            <button id="randomColorBtn" class="btn">Pakeisti spalvą</button>
-        </section>
+    <!-- Tasks Grid -->
+    <div class="tasks-grid">
 
-        <!-- Užduotis 2: Mygtukas keičiantis formą -->
-        <section class="task">
-            <h2>2. Formos keitimas</h2>
-            <p>Paspaudus mygtuką, jis tampa apskritimu arba grįžta į pradinę formą</p>
-            <button id="shapeChangeBtn" class="btn">Keisti formą</button>
-        </section>
+      <!-- Užduotis A - RSR-e -->
+      <div class="task-container">
+        <div class="task-header">
+          <h2 class="task-title">
+            <span class="task-number">A</span>
+            Užduotis A
+          </h2>
+          <p class="task-author">Ruta-Saule (RSR-e)</p>
+        </div>
+        <div class="task-content">
+          <!-- ČIA įklijuok RSR-e HTML kodą užduočiai A -->
 
-        <!-- Užduotis c: X ir O mygtukų teksto keitimas by M-Kod -->
-        <button class="firstButtonX">X</button>
-    <button class="secondButtonO">O</button>
-    
+        </div>
+      </div>
 
+      <!-- Užduotis B - G_Ban -->
+      <div class="task-container">
+        <div class="task-header">
+          <h2 class="task-title">
+            <span class="task-number">B</span>
+            Užduotis B
+          </h2>
+          <p class="task-author">Gabriele (G_Ban)</p>
+        </div>
+        <div class="task-content">
+          <button id="G_Ban_Button">Spausk</button>
+        </div>
+      </div>
 
-        <!-- Užduotis 4: Teksto kopijavimas iš input į div -->
-        <section class="task">
-            <h2>4. Teksto kopijavimas</h2>
-            <p>Rašant tekstą į input, jis atsikartoja div elemente</p>
-            <input type="text" id="textInput" class="input-field" placeholder="Įveskite tekstą...">
-            <div id="textDisplay" class="display-box">Tekstas atsiras čia...</div>
-        </section>
+      <!-- Užduotis C - M-Kod -->
+      <div class="task-container">
+        <div class="task-header">
+          <h2 class="task-title">
+            <span class="task-number">C</span>
+            Užduotis C
+          </h2>
+          <p class="task-author">Margarita (M-Kod)</p>
+        </div>
+        <div class="task-content">
+          <button class="firstButtonX">X</button>
+          <button class="secondButtonO">O</button>
+        </div>
+      </div>
 
-        <!-- Užduotis 5: Skaičių sudėtis -->
-        <section class="task">
-            <h2>5. Skaičių sudėtis</h2>
-            <p>Įvedus du skaičius, rodoma jų suma</p>
-            <input type="text" id="num1" class="input-field" placeholder="Pirmas skaičius">
-            <input type="text" id="num2" class="input-field" placeholder="Antras skaičius">
-            <div id="sumDisplay" class="display-box">Įveskite skaičius</div>
-        </section>
+      <!-- Užduotis D - V-Lir -->
+      <div class="task-container">
+        <div class="task-header">
+          <h2 class="task-title">
+            <span class="task-number">D</span>
+            Teksto kopijavimas
+          </h2>
+          <p class="task-author">Virginija (V-Lir)</p>
+        </div>
+        <div class="task-content">
+          <section class="task">
+            <p>
+              Įveskite tekstą į laukelį - jis iškart atsikartos žemiau esančiame div
+              elemente.
+            </p>
 
-        <!-- Užduotis 6: Range reikšmės rodymas -->
-        <section class="task">
-            <h2>6. Range slankiklis</h2>
-            <p>Keičiant slankiklį, rodoma jo reikšmė</p>
-            <input type="range" id="rangeInput" min="10" max="99" step="1" value="50">
-            <div id="rangeDisplay" class="display-box">50</div>
-        </section>
+            <label for="textInput">Tekstas:</label>
+            <input type="text" id="textInput" class="input-field" />
 
-        <!-- Užduotis 7: Kvadratas su spalvų keitimu -->
-        <section class="task">
-            <h2>7. Spalvų keitimas</h2>
+            <div id="textDisplay" class="display-box"></div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Užduotis E - RSR-e -->
+      <div class="task-container">
+        <div class="task-header">
+          <h2 class="task-title">
+            <span class="task-number">E</span>
+            Užduotis E
+          </h2>
+          <p class="task-author">Ruta-Saule (RSR-e)</p>
+        </div>
+        <div class="task-content">
+          <!-- ČIA įklijuok RSR-e HTML kodą užduočiai E -->
+
+        </div>
+      </div>
+
+      <!-- Užduotis F - G_Ban -->
+      <div class="task-container">
+        <div class="task-header">
+          <h2 class="task-title">
+            <span class="task-number">F</span>
+            Užduotis F
+          </h2>
+          <p class="task-author">Gabriele (G_Ban)</p>
+        </div>
+        <div class="task-content">
+          <div class="container">
+            <input type="range" id="rangeInput" min="10" max="99" step="1" value="10">
+
+            <div id="rangeValue" class="G_BanValue-box">
+              Reikšmė: 10
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Užduotis G - V-Lir -->
+      <div class="task-container">
+        <div class="task-header">
+          <h2 class="task-title">
+            <span class="task-number">G</span>
+            Užduotis G
+          </h2>
+          <p class="task-author">Virginija (V-Lir)</p>
+        </div>
+        <div class="task-content">
+          <section class="task">
+            <h2>g. Spalvų keitimas</h2>
             <p>Keisti kvadrato ir teksto spalvas</p>
             <div id="colorSquare" class="square">Tekstas kvadrate</div>
-            <label>Kvadrato spalva: <input type="color" id="squareColor" value="#3498db"></label>
-            <label>Teksto spalva: <input type="color" id="textColor" value="#ffffff"></label>
-        </section>
 
-        <!-- Užduotis h: Rūšiuotas sąrašas by jattobug  -->
-        <section class="jattobug-sekcija">
-        <div class="h">
-            <input type="text" id="wordInput">
-            <button id="addButton">Pridėti</button>
-            <ol id="wordList"></ol>
-        </div>
-    </section>
-
-        <!-- Užduotis 9: Įdėti kvadratai -->
-        <section class="task">
-            <h2>9. Įdėti kvadratai</h2>
-            <p>Paspaudus ant kvadrato, šalia rodoma jo spalva</p>
-            <div id="nestedSquares">
-                <div class="outer-square" data-color="Raudona">
-                    <div class="middle-square" data-color="Žalia">
-                        <div class="inner-square" data-color="Mėlyna"></div>
-                    </div>
-                </div>
+            <div>
+              <label for="squareColor">Kvadrato spalva:</label>
+              <input type="color" id="squareColor" value="#3498db" />
             </div>
-            <div id="colorInfo" class="display-box">Paspauskite ant kvadrato</div>
-        </section>
 
-        <!-- Užduotis j: Spalvos pavadinimas iš API by M-Kod  -->
-        <section class="colorSection">
-    <input type="color" data-create-color-input>
-    <div class="colorTypeName"> Pasirink spalva</div>
- 
-</section>
+            <div>
+              <label for="textColor">Teksto spalva:</label>
+              <input type="color" id="textColor" value="#ffffff" />
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Užduotis H - jattobug -->
+      <div class="task-container">
+        <div class="task-header">
+          <h2 class="task-title">
+            <span class="task-number">H</span>
+            Užduotis H
+          </h2>
+          <p class="task-author">Karolina (jattobug)</p>
+        </div>
+        <div class="task-content">
+          <section class="jattobug-sekcija">
+            <div class="h">
+              <input type="text" id="wordInput">
+              <button id="addButton">Pridėti</button>
+              <ol id="wordList"></ol>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Užduotis I - G_Ban -->
+      <div class="task-container">
+        <div class="task-header">
+          <h2 class="task-title">
+            <span class="task-number">I</span>
+            Užduotis I
+          </h2>
+          <p class="task-author">Gabriele (G_Ban)</p>
+        </div>
+        <div class="task-content">
+          <div class="G_BanWrapper">
+
+            <div class="G_BanSquare-outer" data-color="red">
+              <div class="G_BanSquare-middle" data-color="green">
+                <div class="G_BanSquare-inner" data-color="blue"></div>
+              </div>
+            </div>
+
+            <div id="G_BanResult" class="G_BanResult"></div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Užduotis J - M-Kod -->
+      <div class="task-container">
+        <div class="task-header">
+          <h2 class="task-title">
+            <span class="task-number">J</span>
+            Užduotis J
+          </h2>
+          <p class="task-author">Margarita (M-Kod)</p>
+        </div>
+        <div class="task-content">
+          <section class="colorSection">
+            <input type="color" data-create-color-input>
+            <div class="colorTypeName"> Pasirink spalva</div>
+
+          </section>
+        </div>
+      </div>
+
     </div>
 
-    <!-- JavaScript failai -->
- <!-- Grupės narių failai -->
+    <!-- Footer -->
+    <footer>
+      <p>&lt;/&gt; Sukurta su <span style="color: #f85149;">♥</span> 5 Grupės</p>
+      <p><a href="https://github.com/EdgarGreenchuk/5Grupe" target="_blank">GitHub Repository</a></p>
+    </footer>
+  </div>
 
-<!-- G_Ban -->
-<script src="G_Ban/app.js"></script>
-
-<!-- M-Kod -->
-<script src="M-Kod/app.js"></script>
-
-<!-- RSR-e -->
-<script src="RSR-e/app.js"></script>
-
-<!-- V-Lir -->
-<script src="V-Lir/app.js"></script>
-
-<!-- jattobug -->
-<script src="jattobug/app.js"></script>
+  <!-- JavaScript Failai -->
+  <script src="RSR-e/app.js"></script> <!-- a, e -->
+  <script src="G_Ban/app.js"></script> <!-- b, f, i -->
+  <script src="M-Kod/app.js"></script> <!-- c, j -->
+  <script src="V-Lir/app.js"></script> <!-- d, g -->
+  <script src="jattobug/app.js"></script> <!-- h -->
 </body>
 
 </html>

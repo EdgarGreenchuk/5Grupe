@@ -515,14 +515,24 @@ footer a:hover {
 }
 
 /* Allow V-Lir CSS to override if they have their own */
-/*.task-content .square {  }*/
-/* Their CSS will be more specific and override */
+.task-content .square {
+    /* Their CSS will be more specific and override */
+}
 
 /* Allow specific buttons to have custom shapes */
 #G_Ban_Button {
     /* Don't force padding, let JS change dimensions */
     min-width: 100px;
     min-height: 50px;
+    transition: all 0.3s ease;
+}
+
+/* Circle class for B task */
+#G_Ban_Button.circle {
+    border-radius: 50% !important;
+    width: 120px !important;
+    height: 120px !important;
+    padding: 0 !important;
 }
 
 /* Color pickers - bigger and nicer */

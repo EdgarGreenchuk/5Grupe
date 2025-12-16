@@ -1,243 +1,558 @@
-/* Bendri stiliai */
+/* ========================================
+   5 GRUPĖ - DARK MODE STILIAI
+   ======================================== */
+
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    /* Dark Mode Colors */
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #21262d;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --accent: #58a6ff;
+    --accent-hover: #1f6feb;
+    --border: #30363d;
+    --success: #3fb950;
+    --warning: #d29922;
+    --error: #f85149;
+    
+    /* Monospace Font */
+    --font-mono: 'Consolas', 'Monaco', 'Courier New', monospace;
+    --font-size: 16px;
+    --line-height: 1.6;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
     min-height: 100vh;
     padding: 20px;
 }
 
-.container {
-    max-width: 1200px;
+/* Main Container */
+.main-container {
+    max-width: 1400px;
     margin: 0 auto;
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+/* Keep body > .container for backwards compatibility */
+body > .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* But allow .container inside tasks to be free */
+.task-content .container {
+    all: initial;
+    display: block;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 40px 20px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    border-radius: 8px;
 }
 
 h1 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 40px;
-    font-size: 2.5em;
-}
-
-/* Užduočių sekcijos */
-.task {
-    background: #f8f9fa;
-    padding: 25px;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    border-left: 5px solid #667eea;
-}
-
-.task h2 {
-    color: #667eea;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
     margin-bottom: 10px;
-    font-size: 1.5em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.task p {
-    color: #6c757d;
-    margin-bottom: 20px;
-    font-size: 1.1em;
+header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
 }
 
-/* Mygtukai */
-.btn {
-    background: #667eea;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    font-size: 1em;
-    border-radius: 5px;
+/* Main Content Grid */
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Task Container - SVARBIAUSIAS! */
+.task-container {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-container:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.task-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--success));
+}
+
+/* Task Header */
+.task-header {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.task-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-number {
+    background: var(--accent);
+    color: var(--bg-primary);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.task-author {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Task Content Area */
+.task-content {
+    padding: 20px 0;
+}
+
+/* Buttons - Override narių stilių */
+.task-container button,
+.task-container input[type="button"] {
+    background: var(--accent) !important;
+    color: var(--bg-primary) !important;
+    border: 2px solid var(--accent) !important;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-family: var(--font-mono) !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    margin: 10px 5px;
+    /* Allow custom dimensions for shape-changing buttons */
+    width: auto;
+    height: auto;
+    display: inline-block;
+}
+
+.task-container button:hover,
+.task-container input[type="button"]:hover {
+    background: var(--accent-hover) !important;
+    border-color: var(--accent-hover) !important;
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.3) !important;
+    transform: translateY(-2px) !important;
+}
+
+.task-container button:active {
+    transform: translateY(0) !important;
+}
+
+/* Inputs - Override narių stilių */
+.task-container input[type="text"],
+.task-container input[type="number"],
+.task-container input[type="color"],
+.task-container input[type="range"],
+.task-container textarea {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border: 2px solid var(--border) !important;
+    padding: 10px 15px !important;
+    border-radius: 6px !important;
+    font-family: var(--font-mono) !important;
+    font-size: 1rem !important;
+    width: auto !important;
+    transition: all 0.3s ease !important;
+    margin: 5px 0 !important;
+}
+
+.task-container input[type="text"]:focus,
+.task-container input[type="number"]:focus,
+.task-container textarea:focus {
+    outline: none !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1) !important;
+}
+
+/* Range Input */
+.task-container input[type="range"] {
+    width: 100% !important;
+    height: 8px !important;
+    background: var(--bg-tertiary) !important;
+    border-radius: 5px !important;
+    outline: none !important;
+    padding: 0 !important;
+}
+
+.task-container input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
     cursor: pointer;
-    margin: 5px;
+}
+
+.task-container input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+/* Divs/Output Areas - Only style generic output divs */
+.task-container div[id$="output"]:not([class*="G_Ban"]):not([class*="square"]),
+.task-container div[id$="result"]:not([class*="G_Ban"]):not([class*="color"]),
+.task-container div[id$="display"]:not([class*="G_Ban"]),
+.task-container .output:not([class*="G_Ban"]),
+.task-container .result:not([class*="G_Ban"]),
+.task-container .display-box,
+.task-container #textDisplay {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    padding: 15px !important;
+    border: 2px solid var(--border) !important;
+    border-radius: 6px !important;
+    font-family: var(--font-mono) !important;
+    font-size: 1.1rem !important;
+    min-height: 50px !important;
+    margin: 10px 0 !important;
+    word-wrap: break-word !important;
+}
+
+/* Lists */
+.task-container ol,
+.task-container ul {
+    background: var(--bg-tertiary) !important;
+    padding: 20px 20px 20px 40px !important;
+    border: 2px solid var(--border) !important;
+    border-radius: 6px !important;
+    margin: 10px 0 !important;
+}
+
+.task-container li {
+    color: var(--text-primary) !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.task-container li:last-child {
+    border-bottom: none !important;
+}
+
+/* Select/Dropdown */
+.task-container select {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border: 2px solid var(--border) !important;
+    padding: 10px 15px !important;
+    border-radius: 6px !important;
+    font-family: var(--font-mono) !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+}
+
+/* Labels */
+.task-container label {
+    color: var(--text-secondary) !important;
+    font-size: 0.95rem !important;
+    display: block !important;
+    margin: 15px 0 5px 0 !important;
+    font-weight: 600 !important;
+}
+
+/* Paragraphs */
+.task-container p {
+    color: var(--text-secondary) !important;
+    line-height: 1.6 !important;
+    margin: 10px 0 !important;
+}
+
+/* Headers inside tasks */
+.task-container h2 {
+    color: var(--accent) !important;
+    font-size: 1.3rem !important;
+    margin: 20px 0 10px 0 !important;
+}
+
+.task-container h3 {
+    color: var(--text-primary) !important;
+    font-size: 1.1rem !important;
+    margin: 15px 0 10px 0 !important;
+}
+
+/* Code blocks */
+.task-container code,
+.task-container pre {
+    background: var(--bg-primary) !important;
+    color: var(--success) !important;
+    padding: 2px 6px !important;
+    border-radius: 3px !important;
+    font-family: var(--font-mono) !important;
+}
+
+/* Links */
+.task-container a {
+    color: var(--accent) !important;
+    text-decoration: none !important;
+}
+
+.task-container a:hover {
+    text-decoration: underline !important;
+    color: var(--accent-hover) !important;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 30px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-secondary);
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tasks-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .task-container {
+        padding: 20px;
+    }
+}
+
+/* Utility Classes */
+.flex {
+    display: flex !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+}
+
+.flex-column {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.center {
+    text-align: center !important;
+}
+
+.mt-10 { margin-top: 10px !important; }
+.mb-10 { margin-bottom: 10px !important; }
+.mt-20 { margin-top: 20px !important; }
+.mb-20 { margin-bottom: 20px !important; }
+
+/* ========================================
+   EXCEPTIONS FOR CUSTOM ELEMENTS
+   Allow member's custom classes to work
+   ======================================== */
+
+/* G_Ban Custom Squares (Nested divs) - Provide defaults */
+.G_BanSquare-outer {
+    width: 300px;
+    height: 300px;
+    background: #e74c3c;
+    position: relative;
+    padding: 50px;
+    box-sizing: border-box;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.G_BanSquare-middle {
+    width: 200px;
+    height: 200px;
+    background: #2ecc71;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.G_BanSquare-inner {
+    width: 100px;
+    height: 100px;
+    background: #3498db;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.G_BanWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.G_BanResult {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    padding: 15px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    min-height: 50px;
+    width: 300px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.G_BanValue-box {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    padding: 15px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* V-Lir Custom Square - Provide default if they don't have their own */
+.task-container .square {
+    width: 200px;
+    height: 200px;
+    background: #3498db;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 20px 0;
     transition: all 0.3s ease;
 }
 
-.btn:hover {
-    background: #5568d3;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+/* Allow V-Lir CSS to override if they have their own */
+/*.task-content .square {  }*/
+/* Their CSS will be more specific and override */
+
+/* Allow specific buttons to have custom shapes */
+#G_Ban_Button {
+    /* Don't force padding, let JS change dimensions */
+    min-width: 100px;
+    min-height: 50px;
 }
 
-.btn:active {
-    transform: translateY(0);
+/* Color pickers - bigger and nicer */
+.task-container input[type="color"] {
+    width: 60px !important;
+    height: 60px !important;
+    padding: 4px !important;
+    border: 2px solid var(--border) !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    background: var(--bg-tertiary) !important;
 }
 
-/* Input laukeliai */
-.input-field {
-    padding: 12px;
-    font-size: 1em;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    margin: 5px;
-    transition: border-color 0.3s ease;
-    min-width: 200px;
-}
-
-.input-field:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-/* Display box */
-.display-box {
-    background: white;
-    border: 2px solid #667eea;
+/* Color result divs */
+.colorTypeName {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
     padding: 15px;
-    margin: 15px 5px;
-    border-radius: 5px;
-    min-height: 50px;
-    font-size: 1.1em;
-    color: #2c3e50;
-}
-
-/* Range input */
-input[type="range"] {
-    width: 100%;
-    max-width: 400px;
-    margin: 10px 0;
-}
-
-/* Color inputs */
-input[type="color"] {
-    width: 60px;
-    height: 40px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px 5px;
-}
-
-label {
-    display: inline-block;
-    margin: 10px;
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-/* Užduotis 7: Kvadratas */
-.square {
-    width: 200px;
-    height: 200px;
-    background-color: #3498db;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
-    font-weight: bold;
-    margin: 20px 0;
-    border-radius: 10px;
-}
-
-/* Užduotis 8: Rūšiuotas sąrašas */
-.sorted-list {
-    background: white;
-    padding: 20px 40px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-size: 1.2rem;
+    text-align: center;
     margin-top: 15px;
-    border-radius: 5px;
-    border: 2px solid #667eea;
     min-height: 50px;
 }
 
-.sorted-list li {
-    padding: 8px;
-    margin: 5px 0;
-    background: #f8f9fa;
-    border-radius: 3px;
-}
-
-/* Užduotis 9: Įdėti kvadratai */
-#nestedSquares {
-    margin: 20px 0;
-}
-
-.outer-square {
-    width: 300px;
-    height: 300px;
-    background-color: #e74c3c;
+.colorSection {
     display: flex;
+    flex-direction: column;
+    gap: 15px;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.outer-square:hover {
-    opacity: 0.9;
-}
-
-.middle-square {
-    width: 200px;
-    height: 200px;
-    background-color: #2ecc71;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.middle-square:hover {
-    opacity: 0.9;
-}
-
-.inner-square {
-    width: 100px;
-    height: 100px;
-    background-color: #3498db;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.inner-square:hover {
-    opacity: 0.9;
-}
-
-/* Responsive dizainas */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    .task {
-        padding: 15px;
-    }
-
-    .input-field {
-        min-width: 150px;
-    }
-
-    .square {
-        width: 150px;
-        height: 150px;
-    }
-
-    .outer-square {
-        width: 250px;
-        height: 250px;
-    }
-
-    .middle-square {
-        width: 150px;
-        height: 150px;
-    }
-
-    .inner-square {
-        width: 75px;
-        height: 75px;
-    }
+    padding: 20px 0;
 }

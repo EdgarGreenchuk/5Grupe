@@ -515,9 +515,8 @@ footer a:hover {
 }
 
 /* Allow V-Lir CSS to override if they have their own */
-.task-content .square {
     /* Their CSS will be more specific and override */
-}
+
 
 /* Allow specific buttons to have custom shapes */
 #G_Ban_Button {

@@ -22,6 +22,6 @@
   document.querySelectorAll("[data-color]").forEach(square => {
     square.addEventListener("click", (event) => {
       event.stopPropagation();
-      result.style.backgroundColor = square.dataset.color;
+      G_BanResult.textContent = square.dataset.color;
     });
   });

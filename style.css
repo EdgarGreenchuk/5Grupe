@@ -37,6 +37,9 @@ body {
     line-height: var(--line-height);
     min-height: 100vh;
     padding: 20px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Main Container */
@@ -44,6 +47,8 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Keep body > .container for backwards compatibility */
@@ -51,12 +56,16 @@ body > .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* But allow .container inside tasks to be free */
 .task-content .container {
     all: initial;
     display: block;
+    width: auto;
+    max-width: none;
 }
 
 /* Header */
@@ -67,14 +76,16 @@ header {
     background: var(--bg-secondary);
     border: 2px solid var(--border);
     border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;  /* Sumažinta iš 2.5rem */
     font-weight: 700;
     color: var(--accent);
     margin-bottom: 10px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;  /* Sumažinta iš 2px */
     text-transform: uppercase;
 }
 
@@ -86,9 +97,11 @@ header p {
 /* Main Content Grid */
 .tasks-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 30px;
-    margin-bottom: 40px;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
 }
 
 /* Task Container - SVARBIAUSIAS! */
@@ -352,6 +365,8 @@ footer {
     border: 2px solid var(--border);
     border-radius: 8px;
     color: var(--text-secondary);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 footer a {
@@ -388,11 +403,20 @@ footer a:hover {
     }
     
     h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        letter-spacing: 0.5px;
     }
     
     .task-container {
         padding: 20px;
+    }
+    
+    body {
+        padding: 10px;
+    }
+    
+    body > .container {
+        padding: 10px;
     }
 }
 

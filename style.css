@@ -44,7 +44,7 @@ body {
 
 /* Main Container */
 .main-container {
-    max-width: 1400px;
+    max-width: 600px;  /* Sumažinta iš 1400px */
     margin: 0 auto;
     padding: 20px;
     width: 100%;
@@ -53,7 +53,7 @@ body {
 
 /* Keep body > .container for backwards compatibility */
 body > .container {
-    max-width: 1400px;
+    max-width: 600px;  /* Sumažinta iš 1400px */
     margin: 0 auto;
     padding: 20px;
     width: 100%;
@@ -97,10 +97,10 @@ header p {
 /* Main Content Grid */
 .tasks-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: 1fr;  /* Single column - viena po kitos */
     gap: 30px;
     margin: 0 auto;
-    max-width: 100%;
+    max-width: 600px;  /* Sumažinta iš 800px - siauresnės dėžutės */
     width: 100%;
 }
 
@@ -573,14 +573,17 @@ footer a:hover {
     border-radius: 6px;
     font-size: 1.2rem;
     text-align: center;
-    margin-top: 15px;
+    margin-bottom: 20px;  /* Tarpas po output */
     min-height: 50px;
+    width: 100%;
+    max-width: 300px;
 }
 
 .colorSection {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 0;  /* Nereikia gap, nes margin-bottom */
     align-items: center;
     padding: 20px 0;
+    position: relative;
 }

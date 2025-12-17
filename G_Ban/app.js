@@ -1,9 +1,9 @@
 // b. variantas:
 
- const button = document.getElementById("G_Ban_Button");
+ const buttonA = document.getElementById("G_Ban_Button");
 
-  button.addEventListener("click", () => {
-    button.classList.toggle("circle");
+  buttonA.addEventListener("click", () => {
+    buttonA.classList.toggle("circle");
   });
 
 // f. variantas:

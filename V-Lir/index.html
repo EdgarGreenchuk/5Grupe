@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Užduotis 4: Teksto kopijavimas iš input į div -->
+    <section class="task">
+      <h2>4. Teksto kopijavimas</h2>
+      <p>
+        Įveskite tekstą į laukelį - jis iškart atsikartos žemiau esančiame div
+        elemente.
+      </p>
+
+      <label for="textInput">Tekstas:</label>
+      <input type="text" id="textInput" class="input-field" />
+
+      <div id="textDisplay" class="display-box"></div>
+    </section>
+
+    <!-- Užduotis 7: Kvadratas su spalvų keitimu -->
+    <section class="task">
+      <h2>7. Spalvų keitimas</h2>
+      <p>Keisti kvadrato ir teksto spalvas</p>
+      <div id="colorSquare" class="square">Tekstas kvadrate</div>
+
+      <div>
+        <label for="squareColor">Kvadrato spalva:</label>
+        <input type="color" id="squareColor" value="#3498db" />
+      </div>
+
+      <div>
+        <label for="textColor">Teksto spalva:</label>
+        <input type="color" id="textColor" value="#ffffff" />
+      </div>
+    </section>
+  </body>
+</html>
